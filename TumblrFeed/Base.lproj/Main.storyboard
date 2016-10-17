@@ -1,14 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Qih-zW-NId">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home Feed-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home Feed" id="BYZ-38-t0r" customClass="PhotosViewController" customModule="TumblrFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,9 +20,147 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Vh6-nj-2F3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="3759.1999999999998" y="35.532233883058474"/>
+        </scene>
+        <!--Feed View Controller-->
+        <scene sceneID="0ii-iX-TPQ">
+            <objects>
+                <viewController storyboardIdentifier="FeedViewController" id="p58-9g-HyW" customClass="FeedViewController" customModule="TumblrFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7uQ-MC-9UA"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zdd-1c-Ix1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EKc-QO-eg7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="55g-Az-usE">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tumblrCell" rowHeight="100" id="EBM-Sk-46I" customClass="TumblrFeedCell" customModule="TumblrFeed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EBM-Sk-46I" id="7sP-8P-SAT">
+                                            <frame key="frameInset" width="342" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="mSd-JP-ejr">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="86" id="DYn-Qz-ltM"/>
+                                                        <constraint firstAttribute="height" constant="86" id="wgX-sj-Y6Z"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qt3-aX-sgY">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbH-rv-h6V">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="OZg-ru-DQf"/>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OZg-ru-DQf" firstAttribute="top" secondItem="7sP-8P-SAT" secondAttribute="topMargin" constant="32" id="21s-VR-8mA"/>
+                                                <constraint firstItem="OZg-ru-DQf" firstAttribute="centerX" secondItem="mSd-JP-ejr" secondAttribute="centerX" id="6Y2-Lp-a4C"/>
+                                                <constraint firstItem="qt3-aX-sgY" firstAttribute="top" secondItem="7sP-8P-SAT" secondAttribute="top" constant="5" id="Bt4-Vl-nkw"/>
+                                                <constraint firstItem="mSd-JP-ejr" firstAttribute="top" secondItem="7sP-8P-SAT" secondAttribute="top" constant="7" id="CT4-lH-0ZZ"/>
+                                                <constraint firstItem="mbH-rv-h6V" firstAttribute="top" secondItem="qt3-aX-sgY" secondAttribute="bottom" constant="10" id="E4l-5K-4gr"/>
+                                                <constraint firstItem="mbH-rv-h6V" firstAttribute="top" secondItem="qt3-aX-sgY" secondAttribute="bottom" constant="10" id="J3M-Ep-uaJ"/>
+                                                <constraint firstItem="mSd-JP-ejr" firstAttribute="leading" secondItem="7sP-8P-SAT" secondAttribute="leading" constant="5" id="KN2-BT-Kb6"/>
+                                                <constraint firstItem="OZg-ru-DQf" firstAttribute="leading" secondItem="7sP-8P-SAT" secondAttribute="leadingMargin" constant="30" id="RyS-AZ-uOW"/>
+                                                <constraint firstAttribute="trailing" secondItem="qt3-aX-sgY" secondAttribute="trailing" constant="20" id="Vht-Vs-cG8"/>
+                                                <constraint firstItem="mbH-rv-h6V" firstAttribute="leading" secondItem="mSd-JP-ejr" secondAttribute="trailing" constant="7" id="cnv-fc-wq4"/>
+                                                <constraint firstItem="qt3-aX-sgY" firstAttribute="leading" secondItem="mSd-JP-ejr" secondAttribute="trailing" constant="9" id="dSm-Tt-tna"/>
+                                                <constraint firstAttribute="bottom" secondItem="mSd-JP-ejr" secondAttribute="bottom" constant="6" id="efb-RU-cQb"/>
+                                                <constraint firstAttribute="bottom" secondItem="mbH-rv-h6V" secondAttribute="bottom" constant="5" id="hTV-Yo-Stf"/>
+                                                <constraint firstItem="OZg-ru-DQf" firstAttribute="centerY" secondItem="mSd-JP-ejr" secondAttribute="centerY" id="q4A-lp-olx"/>
+                                                <constraint firstAttribute="trailing" secondItem="mbH-rv-h6V" secondAttribute="trailing" constant="20" id="t3z-CI-lz7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="activityIndicator" destination="OZg-ru-DQf" id="5zI-Zw-pbH"/>
+                                            <outlet property="tumblrCellDescription" destination="mbH-rv-h6V" id="qq0-pr-ofd"/>
+                                            <outlet property="tumblrCellImageView" destination="mSd-JP-ejr" id="Aig-VI-wQa"/>
+                                            <outlet property="tumblrCellTitle" destination="qt3-aX-sgY" id="yra-JO-yuI"/>
+                                            <segue destination="85l-TT-7N2" kind="show" identifier="DetailTumblrImage" id="IDg-tS-Dyd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="55g-Az-usE" secondAttribute="trailing" id="8In-ny-EUM"/>
+                            <constraint firstItem="Zdd-1c-Ix1" firstAttribute="top" secondItem="55g-Az-usE" secondAttribute="bottom" id="E8u-5j-JdJ"/>
+                            <constraint firstItem="55g-Az-usE" firstAttribute="leading" secondItem="EKc-QO-eg7" secondAttribute="leading" id="KmU-tn-pAw"/>
+                            <constraint firstItem="55g-Az-usE" firstAttribute="top" secondItem="EKc-QO-eg7" secondAttribute="top" id="yag-na-BDx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="GTI-jr-pVe"/>
+                    <connections>
+                        <outlet property="dataProvider" destination="ESz-Q4-6XO" id="vl3-Dg-IlG"/>
+                        <outlet property="tableView" destination="55g-Az-usE" id="d8e-QK-WdA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kS2-Uv-9Zb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="ESz-Q4-6XO" customClass="FeedManager" customModule="TumblrFeed" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="4492" y="43.628185907046479"/>
+        </scene>
+        <!--Photo Detail-->
+        <scene sceneID="HfN-VH-f7J">
+            <objects>
+                <viewController title="Photo Detail" id="85l-TT-7N2" customClass="DetailViewController" customModule="TumblrFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vt1-s4-vQi"/>
+                        <viewControllerLayoutGuide type="bottom" id="S1p-3t-fzk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PEG-pU-c0t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uRc-V0-pDe"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uRc-V0-pDe" firstAttribute="height" secondItem="PEG-pU-c0t" secondAttribute="height" id="UgZ-uS-Thi"/>
+                            <constraint firstItem="uRc-V0-pDe" firstAttribute="width" secondItem="PEG-pU-c0t" secondAttribute="width" id="V82-Ls-OXB"/>
+                            <constraint firstItem="uRc-V0-pDe" firstAttribute="centerX" secondItem="PEG-pU-c0t" secondAttribute="centerX" id="bFm-Xe-F2w"/>
+                            <constraint firstItem="uRc-V0-pDe" firstAttribute="centerY" secondItem="PEG-pU-c0t" secondAttribute="centerY" id="hYP-c1-dZw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="uRc-V0-pDe" id="kTX-WW-hV0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T73-F6-W9M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5314.3999999999996" y="49.925037481259373"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5hg-Ag-MQN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qih-zW-NId" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TYM-zR-kGz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="VtT-2z-sni"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r0e-DD-lnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2820" y="35.532233883058474"/>
         </scene>
     </scenes>
 </document>
